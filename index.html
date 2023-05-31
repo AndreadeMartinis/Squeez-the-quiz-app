@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Exo+2:wght@100;200;300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="./src/img/favicon.png" type="image/x-icon">
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="src/style.css">
+    <!-- JS LINK -->
+    <script type="module" src="src/js/controller.js"></script>
+    <title>Squeez?</title>
+</head>
+<body>
+  <!-- WRAPPER -->
+  <div class="flex wrapper">
+    <!-- BLOB element (between wrapper and main panel) -->
+    <div class="blobEl"></div>
+    <div class="windows-container">
+      <section class="flex loading-window">
+        <div class="flex spinner--container">
+          <img src="./src/img/favicon.png" alt="spinner" title="spinner">
+        </div>
+        <h3>loading...</h3>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+      <div class="progress-text">0%</div>
+      </section>
+      <!-- *** ***** WELCOME WINDOW ***** *** -->
+      <section class="flex welcome-window hidden"></section>
+      <!-- *** ***** PREF WINDOW ***** *** -->
+      <section class="flex preferences-window hidden"></section>
+      <!-- *** ***** GAME WINDOW ***** *** -->
+      <section class="flex game-window hidden"></section>
+      <!-- *** ***** RESULT WINDOW ***** *** -->
+      <section class="flex result-window hidden"></section>
+      <div class="sound-btn--container">
+        <!-- BUTTON SOUND ON/OFF (checkbox transformed in a button that mute sounds on click) -->
+        <input type="checkbox" id="btn-sound-onoff" name="btn-sound-onoff" value="btn-sound-onoff" class="input-sound" checked> 
+        <label class="btn-sound-onoff" for="btn-sound-onoff">sound</label>
+        <div class="sound--message opacity-zero"><p>Sound off</p></div>
+      </div>
+      <div class="blob-btn--container">
+        <!-- BUTTON BLOB ON/OFF (checkbox transformed in a button that hides blob on click) -->
+        <input type="checkbox" id="btn-blob-onoff" name="btn-blob-onoff" value="btn-blob-onoff" class="input-blob" checked> 
+        <label class="btn-blob-onoff" for="btn-blob-onoff">blob</label>
+        <div class="blob--message opacity-zero"><p>Best for slow devices</p></div>
+      </div>
+      <!--  Credits pop-up -->
+      <div class="flex credits-popup--overlay opacity-zero"></div>
+    </div><!-- /WINDOWS-CONTAINER -->
+    <div class="flex footer">
+      <div class="flex github">
+        <p>Deployed on <span class="clr-accent">May 2023</span></p>
+        <a href="https://github.com/AndreadeMartinis" target="_blank">
+          <img src="./src/img/github.png" alt="github-icon" title="linkto: github_AdM">
+        </a>
+      </div>
+      <div class="flex signature">
+        <p>Made by </p>
+        <a href="https://www.linkedin.com/in/andrea-de-martinis/" class="clr-accent" target="_blank" title="linkto: linkedin_AdM">Andrea de Martinis</a>
+        <p>  with</p>
+        <div>
+          <img src="./src/img/html5.png" alt="html5-icon" title="HTML5">
+          <img src="./src/img/css3.png" alt="css3-icon" title="CSS3">
+          <img src="./src/img/javascript.png" alt="javascript-icon" title="JavaScript ECMAScript 2022">
+        </div>
+      </div>
+      <div class="flex credits">
+        <p>Thank</p>
+        <a class="clr-accent credits-popup--link" target="_blank" title="open popup-credits">y❤️u!</a>
+      </div>
+    </div>
+    <div class="audio">
+      <audio id="audioBlobBtn" src="./src/audio/blobBtn.mp3"></audio>
+      <audio id="audioUsernameInputErr" src="./src/audio/emptyUsername.mp3"></audio>
+      <audio id="audioCorrectUsername" src="./src/audio/correctUsername.mp3"></audio>
+      <audio id="audioNavBtn" src="./src/audio/navBtns.mp3"></audio>
+      <audio id="audioCloseBtn" src="./src/audio/closeBtn.mp3"></audio>
+      <audio id="audioPreferencesBtn" src="./src/audio/preferencesBtns.mp3"></audio>
+      <audio id="audioStartQuiz" src="./src/audio/startQuiz.mp3"></audio>
+      <audio id="audioWrongAnswer" src="./src/audio/wrongAnswer.mp3"></audio>
+      <audio id="audioCorrectAnswer" src="./src/audio/correctAnswer.mp3"></audio>
+      <audio id="audioGameOver" src="./src/audio/gameOver.mp3"></audio>
+      <audio id="audioRestart" src="./src/audio/restart.mp3"></audio>
+      <audio id="audioDeleteRecord" src="./src/audio/deleteRecord.mp3"></audio>
+    </div>
+  </div>  
+</body>
+</html>

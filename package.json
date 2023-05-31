@@ -1,0 +1,27 @@
+{
+  "name": "quiz_app",
+  "version": "1.0.0",
+  "description": "Quiz application",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html && parcel watch index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreadeMartinis/quiz_app.git"
+  },
+  "author": "Andrea de Martinis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreadeMartinis/quiz_app/issues"
+  },
+  "homepage": "https://github.com/AndreadeMartinis/quiz_app#readme",
+  "devDependencies": {
+    "parcel": "^2.9.1",
+    "prettier": "2.8.3"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  }
+}
