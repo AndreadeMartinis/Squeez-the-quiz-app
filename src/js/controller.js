@@ -4,7 +4,6 @@ import { createPrefURL } from './helper.js';
 
 import { TIME_BONUS_INTERVAL, TIME_BONUS_MULTIPLIER } from './config.js';
 
-import { async } from "regenerator-runtime";
 import loadingView from './views/loadingView.js';
 import welcomeView from './views/welcomeView.js';
 import preferencesView from './views/preferencesView.js';
