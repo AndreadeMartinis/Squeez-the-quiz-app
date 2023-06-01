@@ -15,7 +15,7 @@ const controlLoadingFiles = async () => {
     const audioFilesArray = Object.values(audioFiles);
     const imageFilesArray = Object.values(imageFiles);
     const files = [...audioFilesArray, ...imageFilesArray];
-    totalFiles = files.length;
+    const totalFiles = files.length;
   
     // Calculate the loading percentage
     for (const [index, file] of files.entries()) {
