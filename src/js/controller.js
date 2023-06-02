@@ -275,10 +275,10 @@ const controlRestart = function(){
 }
 
 const init = function () {
-    /* loadingView.showWindow();
-    loadingView.renderData(); */
     setTimeout(controlLoadingFiles, 3000)
-  }();
+  }
+
+init();
 
 // ROADMAP 🗺️
 
