@@ -1,4 +1,4 @@
-# Quiz App
+# Squeez - The Quiz App
 
 This is a simple quiz app written in JavaScript, HTML, and CSS. The app allows the user to select a username, set game preferences, and play a quiz with questions and answers provided by an API.
 
