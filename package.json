@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndreadeMartinis/quiz_app.git"
+    "url": "git+https://github.com/AndreadeMartinis/Squeez-the-quiz-app.git"
   },
   "author": "Andrea de Martinis",
   "license": "(ISC OR GPL-3.0)",
   "bugs": {
-    "url": "https://github.com/AndreadeMartinis/quiz_app/issues"
+    "url": "https://github.com/AndreadeMartinis/Squeez-the-quiz-app/issues"
   },
-  "homepage": "https://github.com/AndreadeMartinis/quiz_app#readme",
+  "homepage": "https://github.com/AndreadeMartinis/Squeez-the-quiz-app#readme",
   "devDependencies": {
     "parcel": "^2.9.1"
   }
