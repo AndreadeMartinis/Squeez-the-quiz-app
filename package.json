@@ -1,5 +1,5 @@
 {
-  "name": "quiz_app",
+  "name": "squeez_the_quiz_app",
   "version": "1.0.0",
   "description": "Quiz application. Question and answer by API call. Arcade visual style",
   "default": "index.html",
