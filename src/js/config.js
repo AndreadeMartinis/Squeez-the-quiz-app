@@ -23,5 +23,3 @@ export const categoriesArr = [
   "Film & TV",
   "Geography"
 ];
-
-/* 'https://the-trivia-api.com/api/questions?categories=geography&limit=10&difficulty=medium' */

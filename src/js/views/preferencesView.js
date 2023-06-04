@@ -1,20 +1,22 @@
 import { firstLetterUppercase } from "../helper";
 import View from "./View";
 
-class PreferencesView extends View{
-    _parentElement = document.querySelector('.preferences-window');
-    renderData(data){
-        super.renderData(data);
-        this._renderUserPreferences()
-    }
-    _generateMarkup() {
-        return`
+class PreferencesView extends View {
+  _parentElement = document.querySelector(".preferences-window");
+  renderData(data, files) {
+    super.renderData(data, files);
+    this._renderUserPreferences();
+  }
+  _generateMarkup() {
+    return `
             <!-- ************************************** USER INFO PANEL ************************************** -->
             <div class="user-info--container">
                 <h3 class="username">${this._data.username}</h3>
                 <button class="arrow-left-btn" type="button">&#x2039;<span>change username</span></button>
             </div>
-            <h2 class="preferences-message"><span class="clr-accent">${firstLetterUppercase(this._data.username)}?</span> Oh jeez!<br>Set up some stuff and make it <span class="clr-accent">squeez!</span></h2>
+            <h2 class="preferences-message"><span class="clr-accent">${firstLetterUppercase(
+              this._data.username
+            )}?</span> Oh jeez!<br>Set up some stuff and make it <span class="clr-accent">squeez!</span></h2>
             <!-- ******************* FORM FOR DIFFICULTY, QUESTION LIMIT AND CATEGORIES ******************* -->
             <form class="flex preferences-form">
                 <!-- ******************* DIFFICULTY FIELDSET ******************* -->
@@ -123,11 +125,11 @@ class PreferencesView extends View{
                 </fieldset>
                 <button type="button" class="btn-nav-startQuiz"><span class="clr-accent">Squeez</span> me!</button>          
             </form>
-        `
-    }
+        `;
+  }
 
-    _generateErrorMarkup(){
-        return`
+  _generateErrorMarkup() {
+    return `
             <div class="error-message-overlay">
                 <div class="flex error-message-popup--container">
                     <button class="btn-close-popup">X</button>
@@ -139,168 +141,186 @@ class PreferencesView extends View{
                     </p>
                 </div>
             </div>
-        `    
+        `;
+  }
+
+  // Change username (back to welcome) button handler
+  _addHandlerBackToUsernameBtn(handler) {
+    const showWelcomeWindowBtn = document.querySelector(`.arrow-left-btn`);
+    showWelcomeWindowBtn.addEventListener("click", () => {
+      this.playSound(this._files.audioFiles.navBtnsAudio);
+      handler();
+    });
+  }
+
+  // Start quiz button handler
+  _addHandlerStartQuizBtn(handler) {
+    this.quizStartBtn = document.querySelector(".btn-nav-startQuiz");
+
+    this._clickHandler = () => {
+      this.playSound(this._files.audioFiles.startQuizAudio);
+      handler();
+    };
+
+    this._keyHandler = (event) => {
+      if (event.code === "Enter") {
+        this._clickHandler();
+      }
+    };
+
+    this.quizStartBtn.addEventListener("click", this._clickHandler);
+    this._parentElement.addEventListener("keypress", this._keyHandler);
+  }
+
+  removeHandlerStartQuizBtn() {
+    this.quizStartBtn.removeEventListener("click", this._clickHandler);
+    this._parentElement.removeEventListener("keypress", this._keypressHandler);
+  }
+
+  getUserPreferences() {
+    // Get game difficulty
+    const difficulty = this._parentElement.querySelector(
+      'input[name="difficulty"]:checked'
+    ).value;
+    // Get numbers of question
+    const questionLimit = this._parentElement.querySelector(
+      'input[name="questionLimit"]:checked'
+    ).value;
+    // Get categories, could be only one if mixed category is chosen or oneormore if one other category is chosen
+    const categories = Array.from(
+      document.querySelectorAll('input[name="categories"]:checked')
+    )
+      .map((input) => input.value)
+      .join(",");
+
+    return {
+      difficulty: difficulty,
+      questionLimit: questionLimit,
+      categories: categories.includes("mixed") ? "mixed" : categories,
+    };
+  }
+
+  _renderUserPreferences() {
+    // Set game difficulty
+    const difficultyInputs = this._parentElement.querySelectorAll('input[name="difficulty"]');
+    if (this._data.preferences.difficulty) {
+      difficultyInputs.forEach((input) => {
+        input.checked = input.value === this._data.preferences.difficulty;
+      });
+    } else {
+      // Default to 'medium' if no previous preference is available
+      difficultyInputs.forEach((input) => {
+        input.checked = input.value === "medium";
+      });
     }
 
-    // Change username (back to welcome) button handler
-    _addHandlerBackToUsernameBtn(handler){
-        const showWelcomeWindowBtn = document.querySelector(`.arrow-left-btn`)
-        showWelcomeWindowBtn.addEventListener('click', () => {
-          this.playSound(this._data.files.audioFiles.navBtns)
-          handler()
-        })
+    // Set number of questions
+    const questionLimitInputs = this._parentElement.querySelectorAll('input[name="questionLimit"]');
+    if (this._data.preferences.questionLimit) {
+      questionLimitInputs.forEach((input) => {
+        input.checked = input.value === this._data.preferences.questionLimit;
+      });
+    } else {
+      // Default to '10' if no previous preference is available
+      questionLimitInputs.forEach((input) => {
+        input.checked = input.value === "10";
+      });
     }
-    
-    // Start quiz button handler
-    _addHandlerStartQuizBtn(handler) {
-        this.quizStartBtn = document.querySelector(".btn-nav-startQuiz");
-        
-        this._clickHandler = () => {
-            this.playSound(this._data.files.audioFiles.startQuiz);
-            handler();
-        };
+    // Set categories
+    this.categoryCheckboxes = this._parentElement.querySelectorAll('input[name="categories"]');
+    this.categoryCheckboxes.forEach((input) => {
+      if (this._data.preferences.categories) {
+        input.checked = this._data.preferences.categories.includes(input.value);
+      } else {
+        // Default to 'mixed' if no previous preference is available
+        input.checked = input.value === "mixed";
+      }
+    });
+  }
 
-        this._keyHandler = (event) => {
-            if (event.code === "Enter") {
-              this._clickHandler();
-            }
-        };
-        
-        this.quizStartBtn.addEventListener("click", this._clickHandler);
-        this._parentElement.addEventListener("keypress", this._keyHandler);
-    }
+  // - Categories buttons behaviour: mixed category is selected by default if anything else is selected. If so, mixed category is not selected.
+  _addHandlerCategoriesBtns() {
+    const fieldsetCategories = document.querySelector(".get-categories--container");
+    const mixedCheckbox = fieldsetCategories.querySelector("#mixed_categories");
 
-    removeHandlerStartQuizBtn() {
-        this.quizStartBtn.removeEventListener("click", this._clickHandler);
-        this._parentElement.removeEventListener("keypress", this._keypressHandler);
-    }
-    
-    getUserPreferences() {
-        // Get game difficulty
-        const difficulty = this._parentElement.querySelector('input[name="difficulty"]:checked').value;
-        // Get numbers of question
-        const questionLimit = this._parentElement.querySelector('input[name="questionLimit"]:checked').value;
-        // Get categories, could be only one if mixed category is chosen or oneormore if one other category is chosen        
-        const categories = Array.from(document.querySelectorAll('input[name="categories"]:checked')).map(input => input.value).join(',');    
+    fieldsetCategories.addEventListener("change", (e) => {
+      const target = e.target;
 
-        return {
-            difficulty: difficulty,
-            questionLimit: questionLimit,
-            categories: categories.includes('mixed') ? 'mixed' : categories
-        }
-    }
-
-    _renderUserPreferences() {
-        // Set game difficulty
-        const difficultyInputs = this._parentElement.querySelectorAll('input[name="difficulty"]');
-        if (this._data.preferences.difficulty) {
-                difficultyInputs.forEach(input => {
-                input.checked = input.value === this._data.preferences.difficulty;
-            });
-        } else {
-            // Default to 'medium' if no previous preference is available
-            difficultyInputs.forEach(input => {
-                input.checked = input.value === 'medium';
-            });
-        }
-
-        // Set number of questions
-        const questionLimitInputs = this._parentElement.querySelectorAll('input[name="questionLimit"]');
-        if (this._data.preferences.questionLimit) {
-            questionLimitInputs.forEach(input => {
-            input.checked = input.value === this._data.preferences.questionLimit;
-            });
-        } else {
-            // Default to '10' if no previous preference is available
-            questionLimitInputs.forEach(input => {
-                input.checked = input.value === '10';
-            });
-        }    
-        // Set categories
-        this.categoryCheckboxes = this._parentElement.querySelectorAll('input[name="categories"]');
-        this.categoryCheckboxes.forEach(input => {
-            if (this._data.preferences.categories) {
-                input.checked = this._data.preferences.categories.includes(input.value);
-            } else {
-                // Default to 'mixed' if no previous preference is available
-                input.checked = input.value === 'mixed';                
-            }
-        });
-    }
-      
-    // - Categories buttons behaviour
-    _addHandlerCategoriesBtns() {
-        const fieldsetCategories = document.querySelector('.get-categories--container');
-        const mixedCheckbox = fieldsetCategories.querySelector('#mixed_categories');
-      
-        fieldsetCategories.addEventListener('change', (e) => {
-          const target = e.target;
-      
-          if (target === mixedCheckbox) {
-            this.categoryCheckboxes.forEach((checkbox) => {
-              if (checkbox !== mixedCheckbox) {
-                checkbox.checked = false;
-              }
-            });
-          } else {
-            let checkedCategories = Array.from(this.categoryCheckboxes).filter(checkbox => checkbox !== mixedCheckbox && checkbox.checked);
-            if (checkedCategories.length === 0) {
-              mixedCheckbox.checked = true;
-            } else {
-              mixedCheckbox.checked = false;
-            }
+      if (target === mixedCheckbox) {
+        this.categoryCheckboxes.forEach((checkbox) => {
+          if (checkbox !== mixedCheckbox) {
+            checkbox.checked = false;
           }
         });
-    }
-
-    _addHandlerDifficultyBtns(){
-        const shuffleCheckbox = document.getElementById('shuffle');
-        const easyCheckbox = document.getElementById('easy');
-        const hardCheckbox = document.getElementById('hard');
-        const mediumCheckbox = document.getElementById('medium')
-    
-        // Add a listener to the chaging status of the difficulty checkboxes
-        shuffleCheckbox.addEventListener('change', updateRootClass);
-        easyCheckbox.addEventListener('change', updateRootClass);
-        hardCheckbox.addEventListener('change', updateRootClass);
-        mediumCheckbox.addEventListener('change', updateRootClass);
-
-        function updateRootClass() {
-            // Remove all classes previously added
-            document.documentElement.classList.remove('shuffle', 'easy', 'hard', 'medium');
-            
-            // Add correct class to difficulty chosen
-            if (shuffleCheckbox.checked)
-                document.documentElement.classList.add('shuffle');
-            else if (easyCheckbox.checked)
-                document.documentElement.classList.add('easy');
-            else if (hardCheckbox.checked)
-                document.documentElement.classList.add('hard');
-            else if (mediumCheckbox.checked)
-                document.documentElement.classList.remove('medium');
+      } else {
+        let checkedCategories = Array.from(this.categoryCheckboxes).filter(
+          (checkbox) => checkbox !== mixedCheckbox && checkbox.checked
+        );
+        if (checkedCategories.length === 0) {
+          mixedCheckbox.checked = true;
+        } else {
+          mixedCheckbox.checked = false;
         }
-    }
-    
-    _addSoundToInputBtns(){
-        const preferencesBtns = this._parentElement.querySelectorAll('input')
-        preferencesBtns.forEach(btn => {
-            btn.addEventListener('change', () => {
-                this.playSound(this._data.files.audioFiles.preferencesBtns)
-            });
-        })
-    }
+      }
+    });
+  }
 
-    startHandlers(changeUsernameHandler, startQuizHandler){
-        return this._addHandlerCategoriesBtns(),
-        this._addHandlerDifficultyBtns(), 
-        this._addSoundToInputBtns(),
-        this._addHandlerBackToUsernameBtn(changeUsernameHandler),
-        this._addHandlerStartQuizBtn(startQuizHandler)
-    }
+  // A color theme is selected based on the difficulty chosen.
+  _addHandlerDifficultyBtns() {
+    const shuffleCheckbox = document.getElementById("shuffle");
+    const easyCheckbox = document.getElementById("easy");
+    const hardCheckbox = document.getElementById("hard");
+    const mediumCheckbox = document.getElementById("medium");
 
-    restartHandlers(startQuizHandler){
-        this._addHandlerStartQuizBtn(startQuizHandler)
+    // Add a listener to the chaging status of the difficulty checkboxes
+    shuffleCheckbox.addEventListener("change", updateRootClass);
+    easyCheckbox.addEventListener("change", updateRootClass);
+    hardCheckbox.addEventListener("change", updateRootClass);
+    mediumCheckbox.addEventListener("change", updateRootClass);
+
+    function updateRootClass() {
+      // Remove all classes previously added
+      document.documentElement.classList.remove(
+        "shuffle",
+        "easy",
+        "hard",
+        "medium"
+      );
+
+      // Add correct class to difficulty chosen
+      if (shuffleCheckbox.checked)
+        document.documentElement.classList.add("shuffle");
+      else if (easyCheckbox.checked)
+        document.documentElement.classList.add("easy");
+      else if (hardCheckbox.checked)
+        document.documentElement.classList.add("hard");
+      else if (mediumCheckbox.checked)
+        document.documentElement.classList.remove("medium");
     }
+  }
+
+  _addSoundToInputBtns() {
+    const preferencesBtns = this._parentElement.querySelectorAll("input");
+    preferencesBtns.forEach((btn) => {
+      btn.addEventListener("change", () => {
+        this.playSound(this._files.audioFiles.preferencesBtnsAudio);
+      });
+    });
+  }
+
+  startHandlers(changeUsernameHandler, startQuizHandler) {
+    return (
+      this._addHandlerCategoriesBtns(), // Category inputs handler, sets mixed category by default
+      this._addHandlerDifficultyBtns(), // Difficulty inputs handler, changes color theme
+      this._addSoundToInputBtns(),
+      this._addHandlerBackToUsernameBtn(changeUsernameHandler),
+      this._addHandlerStartQuizBtn(startQuizHandler)
+    );
+  }
+
+  restartHandlers(startQuizHandler) {
+    this._addHandlerStartQuizBtn(startQuizHandler);
+  }
 }
 
 export default new PreferencesView();

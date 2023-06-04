@@ -1,8 +1,17 @@
 import View from "./View";
-import { formatString, formatDate, formatDateJSStandard, truncateUsername, truncateCategories, formatDifficulty, formatTime, convertTimeToSeconds} from "../helper";
+import {
+  formatString,
+  formatDate,
+  formatDateJSStandard,
+  truncateUsername,
+  truncateCategories,
+  formatDifficulty,
+  formatTime,
+  convertTimeToSeconds,
+} from "../helper";
 
-class ResultView extends View{
-  _parentElement = document.querySelector('.result-window')
+class ResultView extends View {
+  _parentElement = document.querySelector(".result-window");
 
   _generateMarkup() {
     return `
@@ -22,7 +31,8 @@ class ResultView extends View{
         </tr>
       </thead>
       <tbody>
-        ${this._data.records.map(record=> `
+        ${this._data.records
+          .map((record) => `
             <tr>
                 <td>${truncateUsername(record.username)}</td>
                 <td>${formatDifficulty(record.difficulty)}</td>
@@ -32,39 +42,41 @@ class ResultView extends View{
                 <td>${formatTime(record.completingTime)}</td>
                 <td>${formatDate(record.startingTime)}</td>
             </tr>
-        `).join('')}
+        `
+          )
+          .join("")}
       </tbody>
     </table>
     <!-- NAVIGATION BUTTONS (1.Delete all records 2.Restart Quiz) -->
     <div class="record--btns-container">
       <button class="btn-nav-deleteResult"><span class="clr-accent">Delete</span> all records</button>
       <button class="btn-nav-restartQuiz"><span class="clr-accent">Squeez</span> me again!</button>
-    </div>`
+    </div>`;
   }
-  
+
   addHandlerRestartBtn(handler) {
-    const restartBtnsArr = document.querySelectorAll('.btn-nav-restartQuiz')
-    restartBtnsArr.forEach(btn => {
-      btn.addEventListener('click', () => {
-        this.playSound(this._data.files.audioFiles.navBtns)
-        handler()
-      })
-    })
+    const restartBtnsArr = document.querySelectorAll(".btn-nav-restartQuiz");
+    restartBtnsArr.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.playSound(this._files.audioFiles.navBtnsAudio);
+        handler();
+      });
+    });
   }
 
   addHandlerShowRecordsBtn() {
-    const showRecordBtn = document.querySelector('.btn-nav-showRecords')
-    const resultOverlay = document.querySelector('.result--overlay')
-    showRecordBtn.addEventListener('click', () => {
-      this.playSound(this._data.files.audioFiles.navBtns)
-      this._makeInvisibilePopup(resultOverlay)
-      this._addHandlerSortRecords()
-    })
+    const showRecordBtn = document.querySelector(".btn-nav-showRecords");
+    const resultOverlay = document.querySelector(".result--overlay");
+    showRecordBtn.addEventListener("click", () => {
+      this.playSound(this._files.audioFiles.navBtnsAudio);
+      this._makeInvisibilePopup(resultOverlay);
+      this._addHandlerSortRecords();
+    });
   }
-  
-  addHandlerDeleteRecordsBtn(handler){
-    const triggerBtnEl = document.querySelector('.btn-nav-deleteResult')
-    const popupOverlayEl = document.querySelector('.delete-records--overlay');
+
+  addHandlerDeleteRecordsBtn(handler) {
+    const triggerBtnEl = document.querySelector(".btn-nav-deleteResult");
+    const popupOverlayEl = document.querySelector(".delete-records--overlay");
     const markup = `
       <div class="flex delete-records-popup--container">
         <button class="btn-close-popup">X</button>
@@ -72,20 +84,20 @@ class ResultView extends View{
         <p>All your precious records? 😢</p>
         <button class="btn-nav-delete-records-popup" type"button">Yes, <span class="clr-accent">delete</span>'em all</button>
       </div>
-    `
-    this._popupHandler(popupOverlayEl, triggerBtnEl, markup)
-    const deleteRecordsBtn = document.querySelector('.btn-nav-delete-records-popup')
-    deleteRecordsBtn.addEventListener('click', () => {
-      this.playSound(this._data.files.audioFiles.navBtns)
-      handler()
-    })
+    `;
+    this._popupHandler(popupOverlayEl, triggerBtnEl, markup);
+    const deleteRecordsBtn = document.querySelector(".btn-nav-delete-records-popup");
+    deleteRecordsBtn.addEventListener("click", () => {
+      this.playSound(this._files.audioFiles.navBtnsAudio);
+      handler();
+    });
   }
 
-  renderDeleteRecordsPopup(handler){
-    handler()
+  renderDeleteRecordsPopup(handler) {
+    handler();
   }
 
-  renderResultPopup(){
+  renderResultPopup() {
     const markup = `
       <div class="flex result--overlay">
         <div class="flex result--container">     
@@ -101,77 +113,78 @@ class ResultView extends View{
           </div>
         </div>
       </div>
-    `
-    this._parentElement.insertAdjacentHTML('afterbegin', markup)
+    `;
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   _addHandlerSortRecords() {
     // All headers in an array
-    const headersArr = document.querySelectorAll('.score-header, .time-header, .date-header');
-  
-    headersArr.forEach(header => {
-      let sortDirection = 'asc';
-  
-      header.addEventListener('click', () => {
-        const sortBy = header.classList.contains('score-header') ? 'score' :
-                       header.classList.contains('time-header') ? 'time' :
-                       'date';
-        
+    const headersArr = document.querySelectorAll(".score-header, .time-header, .date-header");
+
+    headersArr.forEach((header) => {
+      let sortDirection = "asc";
+
+      header.addEventListener("click", () => {
+        const sortBy = header.classList.contains("score-header")
+          ? "score"
+          : header.classList.contains("time-header")
+          ? "time"
+          : "date";
+
         //Inverting sortDirection
-        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-        
+        sortDirection = sortDirection === "asc" ? "desc" : "asc";
+
         // Replace arrow entities
         const arrowDown = String.fromCharCode(9662);
-        const arrowUp = String.fromCharCode(9652);        
+        const arrowUp = String.fromCharCode(9652);
         header.innerHTML = header.innerHTML.replace(
-          sortDirection === 'asc' ? arrowDown : arrowUp,
-          sortDirection === 'asc' ? arrowUp : arrowDown
+          sortDirection === "asc" ? arrowDown : arrowUp,
+          sortDirection === "asc" ? arrowUp : arrowDown
         );
-  
+
         this._sortRecords(sortBy, sortDirection);
-        this.playSound(this._data.files.audioFiles.navBtns);
+        this.playSound(this._files.audioFiles.navBtnsAudio);
       });
     });
-  }  
+  }
 
   _sortRecords(sortBy, sortDirection) {
-    const recordsTable = document.getElementById('records-table');
-    const tbody = recordsTable.querySelector('tbody');
-    const rows = Array.from(tbody.getElementsByTagName('tr'));
-  
+    const recordsTable = document.getElementById("records-table");
+    const tbody = recordsTable.querySelector("tbody");
+    const rows = Array.from(tbody.getElementsByTagName("tr"));
+
     rows.sort((rowA, rowB) => {
       let valueA, valueB, dateA, dateB;
-  
-      if (sortBy === 'score') {
+
+      if (sortBy === "score") {
         valueA = parseInt(rowA.cells[4].textContent);
         valueB = parseInt(rowB.cells[4].textContent);
-      } else if (sortBy === 'time') {
+      } else if (sortBy === "time") {
         const timeA = rowA.cells[5].textContent.trim();
         const timeB = rowB.cells[5].textContent.trim();
-  
+
         valueA = convertTimeToSeconds(timeA);
         valueB = convertTimeToSeconds(timeB);
-      } else if (sortBy === 'date') {
+      } else if (sortBy === "date") {
         dateA = formatDateJSStandard(rowA.cells[6].textContent);
         valueA = new Date(dateA);
         dateB = formatDateJSStandard(rowB.cells[6].textContent);
         valueB = new Date(dateB);
       }
-  
-      return sortDirection === 'asc' ? valueA - valueB : valueB - valueA;
-    });
-  
-    rows.forEach(row => tbody.removeChild(row));
-    rows.forEach(row => tbody.appendChild(row));
-  }  
 
-  startHandlers(handlerDeleteRecordsBtn, handlerRestartBtn){
-   this.renderResultPopup()        
-   this.addHandlerShowRecordsBtn();
-   this._addHandlerSortRecords()
-   this.addHandlerDeleteRecordsBtn(handlerDeleteRecordsBtn)
-   this.addHandlerRestartBtn(handlerRestartBtn)
+      return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+    });
+
+    rows.forEach((row) => tbody.removeChild(row));
+    rows.forEach((row) => tbody.appendChild(row));
   }
 
+  startHandlers(handlerDeleteRecordsBtn, handlerRestartBtn) {
+    this.renderResultPopup();
+    this.addHandlerShowRecordsBtn();
+    this._addHandlerSortRecords();
+    this.addHandlerDeleteRecordsBtn(handlerDeleteRecordsBtn);
+    this.addHandlerRestartBtn(handlerRestartBtn);
+  }
 }
-export default new ResultView()
+export default new ResultView();

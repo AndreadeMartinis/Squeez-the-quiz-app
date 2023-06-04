@@ -1,4 +1,0 @@
-{
-    "aws.telemetry": false,
-    "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false
-}

@@ -2,6 +2,7 @@ Quiz App
 This is a simple quiz app written in JavaScript, HTML, and CSS. The app allows the user to select a username, set game preferences, and play a quiz with questions and answers provided by an API.
 
 - Features
+-- Arcade style graphic
 -- Fast loading: The app loads quickly, allowing the user to start playing without long waiting times.
 -- Username: The user can select a username before starting the game.
 -- Preferences screen: The user can set the quiz difficulty, the number of questions, and the question categories.
@@ -22,5 +23,5 @@ This is a simple quiz app written in JavaScript, HTML, and CSS. The app allows t
 
 - Possible Future Improvements
 -- Implementing an authentication system to allow users to compare their records them with other players.
--- Adding a "Help" feature to provide hints or explanations during the game.
 -- Implementing new languages (italian first of all)
+-- Adding a "Help" feature.
