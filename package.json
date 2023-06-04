@@ -1,7 +1,7 @@
 {
   "name": "quiz_app",
   "version": "1.0.0",
-  "description": "Quiz application",
+  "description": "Quiz application. Question and answer by API call. Arcade visual style",
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html && parcel watch index.html",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/AndreadeMartinis/quiz_app.git"
   },
   "author": "Andrea de Martinis",
-  "license": "ISC",
+  "license": "(ISC OR GPL-3.0)",
   "bugs": {
     "url": "https://github.com/AndreadeMartinis/quiz_app/issues"
   },
