@@ -1017,7 +1017,6 @@ h1 {
 .welcome-window--btns-container {
   padding-top: 2em;
   justify-content: center;
-  gap: .5em;
 }
 
 .welcome-window--btns-container div {
@@ -1090,9 +1089,10 @@ h1 {
   }
   .welcome-window--btns-container {
     padding-inline: 0.5em;
+    gap: .5em;
   }
   .btn-nav-toPreferences{
-    font-size: .7em;
+    font-size: .5rem;
     width: 50%
   }
   .welcome-minibtns button {
