@@ -1089,10 +1089,10 @@ h1 {
   }
   .welcome-window--btns-container {
     padding-inline: 0.5em;
-    gap: .5em;
+    gap: 5em;
   }
   .btn-nav-toPreferences{
-    font-size: .7em;
+    font-size: 7em;
     width: 50%
   }
   .welcome-minibtns button {
