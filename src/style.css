@@ -1690,7 +1690,7 @@ th {
   text-shadow: var(--text-shadow);
 }
 .footer .clr-accent {
-  text-shadow: none;
+  text-shadow: 0 0 2px black;
 }
 .footer a {
   cursor: pointer;
@@ -1886,6 +1886,4 @@ span.signature {
 TODO: 
   
   - Messaggio dei bottoni blob e sound da spostare più interno
-  - Testo bottoni navigazione da rimpicciolire in responsive
-  - Il footer deve rimanere attaccato alla base della pagina e la pagina se è 100% visibile dev'essere centrata 
 */
