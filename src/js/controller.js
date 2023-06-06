@@ -166,7 +166,10 @@ const controlAnswer = function () {
   gameView.checkAnswer();
   gameView.renderColorAnswer();
   //Controlling points if answer is correct
-  if (gameView.answerIsCorrect) controlPoints(questionNum);
+  if (gameView.answerIsCorrect) {
+    controlPoints(questionNum);
+    model.incrementCorrectAnswers();
+  }
   setTimeout(() => {
     gameView.renderSpinner();
   }, 800);
