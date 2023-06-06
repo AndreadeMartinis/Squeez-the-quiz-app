@@ -293,7 +293,7 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-@media screen and (width < 48em) {
+/* @media screen and (width < 48em) {
   [class$="popup--container"] {
     width: 70%;
     font-size: small;
@@ -312,7 +312,7 @@ h4 {
   [class$="popup--container"] p {
     font-size: var(--fs-smaller);
   }
-}
+} */
 
 /* ************ ERROR MESSAGE POPUP ************ */
 .error-message-popup--container {
