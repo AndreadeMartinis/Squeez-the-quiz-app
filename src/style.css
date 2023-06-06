@@ -920,7 +920,7 @@ body::-webkit-scrollbar-thumb {
 */
 
 .loading-window {
-  height: 90vh;
+  min-height: 90vh;
 }
 
 .loading-window--container{
@@ -1007,7 +1007,7 @@ h1 {
 }
 
 .username-form label {
-  width: 100%;
+  min-width: 100%;
   text-align: center;
 }
 
@@ -1029,7 +1029,7 @@ h1 {
   padding-bottom: 0.2em;
 }
 .welcome-minibtns button {
-  width: 48%;
+  min-width: 48%;
   font-size: 0.7rem;
 }
 /* --- *** POP-UP *** --- */
@@ -1096,7 +1096,7 @@ h1 {
     padding-inline: 0.2em;
   }
   .welcome-minibtns button {
-    width: 45%;
+    min-width: 45%;
     font-size: 0.65em;
   }
 }
