@@ -245,7 +245,7 @@ const init = (function () {
   setTimeout(()=>{
     // Simulates a file loading before starting the app
     loadingView.simulateLoading()
-    setTimeout(controlStartApp, 2500)
+    setTimeout(controlStartApp, 3200)
   }, 3000);
 })();
 
