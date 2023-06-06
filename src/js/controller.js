@@ -252,7 +252,6 @@ const init = (function () {
 // ROADMAP 🗺️
 
 // BUGS TO FIX 🐛
-// Blob checkbox ONOFF scrolla fino alla base della pagina
 // Alla prima renderizzazione del spinner sminchia l'immagine
 
 // FEATURES TO ADD 🛠️

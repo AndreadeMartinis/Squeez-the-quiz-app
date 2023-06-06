@@ -49,7 +49,22 @@ select {
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /*
   ******************************************************************
@@ -278,13 +293,13 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   [class$="popup--container"] {
     width: 70%;
     font-size: small;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   [class$="popup--container"] {
     width: 90%;
   }
@@ -354,12 +369,12 @@ h4 {
 }
 
 /* ************ SPINNER MEDIAQUERIES ************ */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .spinner-popup--container {
     min-width: 40%;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   .spinner-popup--container h2 {
     color: var(--clr-accent);
     font-size: 1em;
@@ -622,7 +637,7 @@ button:active {
 }
 
 /* ********************** BUTTONS MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   label {
     font-size: 0.8em;
   }
@@ -631,7 +646,7 @@ button:active {
     font-size: 0.65rem;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   /* Buttons containers */
   [class*="btns-container"] {
     width: fit-content;
@@ -772,7 +787,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** WINDOWS CONTAINER MEDIA QUERIES ********************** */
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   /* removing border from windows-container */
   .windows-container {
     width: 100%;
@@ -791,7 +806,7 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--bg-color);
 }
 /* ********************** (WELCOME, PREFERENCES GAME, RESULT)-WINDOW  MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   [class$="-window"] {
     min-height: auto;
   }
@@ -863,7 +878,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** USER-INFO PANEL MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .user-info--container {
     min-height: initial;
   }
@@ -875,7 +890,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 0.7rem;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   .user-info--container {
     padding: 0 0.5em 0.3em 0.3em;
     min-height: initial;
@@ -963,7 +978,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** LOADING-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .loading-window {
     min-height: 85dvh;
   }
@@ -1045,7 +1060,7 @@ h1 {
 }
 
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .welcome-window {
     min-height: 85dvh;
   }
@@ -1059,7 +1074,7 @@ h1 {
     font-size: x-large;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   h1 {
     font-size: var(--fs-bigger);
   }
@@ -1177,7 +1192,7 @@ fieldset:hover legend {
 }
 
 /* ********************** PREFERENCES-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .preferences-message {
     padding-block: 5em 0.5em;
     font-size: 1.4em;
@@ -1199,14 +1214,14 @@ fieldset:hover legend {
     margin: 0;
   }
 }
-@media screen and (max-width: 42em) {
+@media screen and (max-width: 672px) {
   fieldset {
     width: 100%;
     border: none;
     box-shadow: var(--box-sh-button);
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   /* H2 MESSAGE MEDIA QUERY */
   .preferences-message {
     font-size: 1.6em;
@@ -1438,7 +1453,7 @@ fieldset:hover legend {
 }
 
 /* ********************** GAME-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .game-window {
     font-size: var(--fs-small);
   }
@@ -1447,7 +1462,7 @@ fieldset:hover legend {
     margin-top: calc(var(--margin-top));
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   .bonus-time--container {
     font-size: var(--fs-smaller);
     margin-top: calc(var(--margin-top) * 3);
@@ -1596,7 +1611,7 @@ th {
 }
 
 /* ********************** RESULT-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .result-window {
     font-size: small;
   }
@@ -1616,7 +1631,7 @@ th {
     width: 90%;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   /* RECORDS TABLE MEDIA QUERY */
   table {
     width: 95%;
@@ -1674,9 +1689,7 @@ th {
   letter-spacing: 0.1em;
   text-shadow: var(--text-shadow);
 }
-.footer .clr-accent {
-  text-shadow: 0 0 2px black;
-}
+
 .footer a {
   cursor: pointer;
   margin-inline: 0.5em;
@@ -1722,7 +1735,7 @@ span.signature {
 }
 
 /* ********************** FOOTER MEDIA QUERIES ********************** */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 768px) {
   .footer {
     width: 95%;
 
@@ -1739,7 +1752,7 @@ span.signature {
     margin-left: 0.1em;
   }
 }
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 560px) {
   .footer {
     flex-direction: column;
 
@@ -1879,4 +1892,5 @@ TODO:
   - Messaggio dei bottoni blob e sound da spostare più interno
   - La traiettora del blob?
   - Lo sminchiamento dell'immagine di spinner iniziale
+  - Il colore del testo in span del footer è illegibile
 */
