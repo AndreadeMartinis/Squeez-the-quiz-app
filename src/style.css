@@ -653,8 +653,6 @@ button:active {
 @media (width < 35em) {
   /* Buttons containers */
   [class*="btns-container"] {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
     width: fit-content;
     gap: 1.5em;
 
