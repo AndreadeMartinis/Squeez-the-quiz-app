@@ -293,12 +293,6 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-@media screen and (max-width: 768px) {
-  [class$="popup--container"] {
-    width: 70%;
-    font-size: small;
-  }
-}
 @media screen and (max-width: 560px) {
   [class$="popup--container"] {
     width: 90%;
@@ -311,6 +305,12 @@ h4 {
   }
   [class$="popup--container"] p {
     font-size: var(--fs-smaller);
+  }
+}
+@media screen and (max-width: 768px) {
+  [class$="popup--container"] {
+    width: 70%;
+    font-size: small;
   }
 }
 
@@ -369,11 +369,6 @@ h4 {
 }
 
 /* ************ SPINNER MEDIAQUERIES ************ */
-@media screen and (max-width: 768px) {
-  .spinner-popup--container {
-    min-width: 40%;
-  }
-}
 @media screen and (max-width: 560px) {
   .spinner-popup--container h2 {
     color: var(--clr-accent);
@@ -384,6 +379,11 @@ h4 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .spinner-popup--container {
+    min-width: 40%;
+  }
+}
 /* ----- *************** INPUT TYPE TEXT (Only for username. Present in -> username-container, preferences-container) ----- */
 
 input[type="text"] {
@@ -637,21 +637,12 @@ button:active {
 }
 
 /* ********************** BUTTONS MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  label {
-    font-size: 0.8em;
-  }
-  .btn-blob-onoff,
-  .btn-sound-onoff {
-    font-size: 0.65rem;
-  }
-}
 @media screen and (max-width: 560px) {
   /* Buttons containers */
   [class*="btns-container"] {
     width: fit-content;
     gap: 1.5em;
-
+    
     font-size: var(--fs-small);
   }
   /* Nav buttons */
@@ -666,6 +657,15 @@ button:active {
   .btn-sound-onoff {
     font-size: 0.6rem;
     padding: 0.2em;
+  }
+}
+@media screen and (max-width: 768px) {
+  label {
+    font-size: 0.8em;
+  }
+  .btn-blob-onoff,
+  .btn-sound-onoff {
+    font-size: 0.65rem;
   }
 }
 
@@ -878,18 +878,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** USER-INFO PANEL MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .user-info--container {
-    min-height: initial;
-  }
-  .user-info--container p {
-    font-size: var(--fs-smaller);
-    margin-left: 1em;
-  }
-  .user-info--container span {
-    font-size: 0.7rem;
-  }
-}
 @media screen and (max-width: 560px) {
   .user-info--container {
     padding: 0 0.5em 0.3em 0.3em;
@@ -904,6 +892,18 @@ body::-webkit-scrollbar-thumb {
   }
   .user-info--container p {
     font-size: 0.9em;
+  }
+  .user-info--container span {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .user-info--container {
+    min-height: initial;
+  }
+  .user-info--container p {
+    font-size: var(--fs-smaller);
+    margin-left: 1em;
   }
   .user-info--container span {
     font-size: 0.7rem;
@@ -1060,20 +1060,6 @@ h1 {
 }
 
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .welcome-window {
-    min-height: 85dvh;
-  }
-  h1 {
-    font-size: 2em;
-  }
-  .welcome-window--message {
-    font-size: 1.4em;
-  }
-  .credits-popup--container h2 {
-    font-size: x-large;
-  }
-}
 @media screen and (max-width: 560px) {
   h1 {
     font-size: var(--fs-bigger);
@@ -1111,6 +1097,20 @@ h1 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .welcome-window {
+    min-height: 85dvh;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  .welcome-window--message {
+    font-size: 1.4em;
+  }
+  .credits-popup--container h2 {
+    font-size: x-large;
+  }
+}
 /* 
   ****************************************************************************************************************************
   ******************************************************* PREFERENCES VIEW ***************************************************
@@ -1192,35 +1192,6 @@ fieldset:hover legend {
 }
 
 /* ********************** PREFERENCES-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .preferences-message {
-    padding-block: 5em 0.5em;
-    font-size: 1.4em;
-    width: 80%;
-  }
-  fieldset {
-    width: 49%;
-    padding: 0;
-    max-height: 160px;
-  }
-  fieldset:last-of-type {
-    max-height: unset;
-  }
-  fieldset label {
-    margin-inline: 1em;
-    margin-block: 0.3em;
-  }
-  fieldset:last-of-type label {
-    margin: 0;
-  }
-}
-@media screen and (max-width: 672px) {
-  fieldset {
-    width: 100%;
-    border: none;
-    box-shadow: var(--box-sh-button);
-  }
-}
 @media screen and (max-width: 560px) {
   /* H2 MESSAGE MEDIA QUERY */
   .preferences-message {
@@ -1247,7 +1218,7 @@ fieldset:hover legend {
     padding: 0.4em;
     margin: 0.5em;
   }
-
+  
   .get-categories--container{
     padding-right: 1em;
   }
@@ -1266,6 +1237,35 @@ fieldset:hover legend {
   }
   .other-categories--container + .other-categories--container {
     margin-left: 1em;
+  }
+}
+@media screen and (max-width: 672px) {
+  fieldset {
+    width: 100%;
+    border: none;
+    box-shadow: var(--box-sh-button);
+  }
+}
+@media screen and (max-width: 768px) {
+  .preferences-message {
+    padding-block: 5em 0.5em;
+    font-size: 1.4em;
+    width: 80%;
+  }
+  fieldset {
+    width: 49%;
+    padding: 0;
+    max-height: 160px;
+  }
+  fieldset:last-of-type {
+    max-height: unset;
+  }
+  fieldset label {
+    margin-inline: 1em;
+    margin-block: 0.3em;
+  }
+  fieldset:last-of-type label {
+    margin: 0;
   }
 }
 
@@ -1453,15 +1453,6 @@ fieldset:hover legend {
 }
 
 /* ********************** GAME-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .game-window {
-    font-size: var(--fs-small);
-  }
-  .bonus-time--container {
-    width: auto;
-    margin-top: calc(var(--margin-top));
-  }
-}
 @media screen and (max-width: 560px) {
   .bonus-time--container {
     font-size: var(--fs-smaller);
@@ -1480,6 +1471,15 @@ fieldset:hover legend {
   }
   .game-window [class$="-legend"] {
     font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .game-window {
+    font-size: var(--fs-small);
+  }
+  .bonus-time--container {
+    width: auto;
+    margin-top: calc(var(--margin-top));
   }
 }
 
@@ -1611,26 +1611,6 @@ th {
 }
 
 /* ********************** RESULT-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .result-window {
-    font-size: small;
-  }
-  th,
-  td {
-    padding-inline: 0.2em;
-    padding-block: 0.3em;
-  }
-  .record--btns-container {
-    width: 90%;
-  }
-  .result--btns-container {
-    flex-direction: column;
-    width: 70%;
-  }
-  .result--container {
-    width: 90%;
-  }
-}
 @media screen and (max-width: 560px) {
   /* RECORDS TABLE MEDIA QUERY */
   table {
@@ -1672,6 +1652,26 @@ th {
   .record--btns-container button {
     font-size: 0.7em;
     padding: .5em .8em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .result-window {
+    font-size: small;
+  }
+  th,
+  td {
+    padding-inline: 0.2em;
+    padding-block: 0.3em;
+  }
+  .record--btns-container {
+    width: 90%;
+  }
+  .result--btns-container {
+    flex-direction: column;
+    width: 70%;
+  }
+  .result--container {
+    width: 90%;
   }
 }
 
@@ -1735,23 +1735,6 @@ span.signature {
 }
 
 /* ********************** FOOTER MEDIA QUERIES ********************** */
-@media screen and (max-width: 768px) {
-  .footer {
-    width: 95%;
-
-    font-size: 0.65rem;
-    letter-spacing: 0.7px;
-  }
-  .footer img {
-    margin-left: 0.2em;
-  }
-  .footer a {
-    margin-inline: 0.1em;
-  }
-  .github span {
-    margin-left: 0.1em;
-  }
-}
 @media screen and (max-width: 560px) {
   .footer {
     flex-direction: column;
@@ -1769,6 +1752,23 @@ span.signature {
   }
   .github span {
     margin-left: 0.4em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    width: 95%;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.7px;
+  }
+  .footer img {
+    margin-left: 0.2em;
+  }
+  .footer a {
+    margin-inline: 0.1em;
+  }
+  .github span {
+    margin-left: 0.1em;
   }
 }
 
