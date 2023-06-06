@@ -980,7 +980,7 @@ body::-webkit-scrollbar-thumb {
 /* ********************** LOADING-VIEW MEDIA QUERIES ********************** */
 @media screen and (width < 48em) {
   .loading-window {
-    min-height: 85vh;
+    min-height: 85dvh;
   }
 }
 /* 
@@ -1062,7 +1062,7 @@ h1 {
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
 @media screen and (width < 48em) {
   .welcome-window {
-    min-height: 85vh;
+    min-height: 85dvh;
   }
   h1 {
     font-size: 2em;
