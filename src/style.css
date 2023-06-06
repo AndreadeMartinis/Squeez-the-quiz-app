@@ -293,7 +293,7 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-/* @media screen and (width < 48em) {
+@media screen and (width < 48em) {
   [class$="popup--container"] {
     width: 70%;
     font-size: small;
@@ -312,7 +312,7 @@ h4 {
   [class$="popup--container"] p {
     font-size: var(--fs-smaller);
   }
-} */
+}
 
 /* ************ ERROR MESSAGE POPUP ************ */
 .error-message-popup--container {
@@ -648,16 +648,16 @@ button:active {
 }
 @media screen and (width < 35em) {
   /* Buttons containers */
-  [class*="btns-container"] {
+  /* [class*="btns-container"] {
     width: fit-content;
     gap: 1.5em;
 
     font-size: var(--fs-small);
-  }
+  } */
   /* Nav buttons */
-  [class*="-nav"] {
+  /* [class*="-nav"] {
     font-size: var(--fs-smaller);
-  }
+  } */
   /* Labels transformed in buttons, checkbox and radio are hidden*/
   label {
     font-size: var(--fs-smaller);
