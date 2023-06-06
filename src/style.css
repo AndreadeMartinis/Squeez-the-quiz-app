@@ -293,13 +293,13 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   [class$="popup--container"] {
     width: 70%;
     font-size: small;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   [class$="popup--container"] {
     width: 90%;
   }
@@ -369,12 +369,12 @@ h4 {
 }
 
 /* ************ SPINNER MEDIAQUERIES ************ */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .spinner-popup--container {
     min-width: 40%;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   .spinner-popup--container h2 {
     color: var(--clr-accent);
     font-size: 1em;
@@ -637,7 +637,7 @@ button:active {
 }
 
 /* ********************** BUTTONS MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   label {
     font-size: 0.8em;
   }
@@ -646,7 +646,7 @@ button:active {
     font-size: 0.65rem;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   /* Buttons containers */
   [class*="btns-container"] {
     width: fit-content;
@@ -787,7 +787,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** WINDOWS CONTAINER MEDIA QUERIES ********************** */
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   /* removing border from windows-container */
   .windows-container {
     width: 100%;
@@ -806,7 +806,7 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--bg-color);
 }
 /* ********************** (WELCOME, PREFERENCES GAME, RESULT)-WINDOW  MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   [class$="-window"] {
     min-height: auto;
   }
@@ -878,7 +878,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** USER-INFO PANEL MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .user-info--container {
     min-height: initial;
   }
@@ -890,7 +890,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 0.7rem;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   .user-info--container {
     padding: 0 0.5em 0.3em 0.3em;
     min-height: initial;
@@ -1054,7 +1054,7 @@ h1 {
 }
 
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .welcome-window {
     min-height: 85vh;
   }
@@ -1068,7 +1068,7 @@ h1 {
     font-size: x-large;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   .welcome-window {
     min-height: 95vh;
   }
@@ -1182,7 +1182,7 @@ fieldset:hover legend {
 }
 
 /* ********************** PREFERENCES-WINDOW MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .preferences-message {
     padding-block: 5em 0.5em;
     font-size: 1.4em;
@@ -1204,14 +1204,14 @@ fieldset:hover legend {
     margin: 0;
   }
 }
-@media (max-width: 42em) {
+@media screen and (width < 42em) {
   fieldset {
     width: 100%;
     border: none;
     box-shadow: var(--box-sh-button);
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   /* H2 MESSAGE MEDIA QUERY */
   .preferences-message {
     font-size: 1.6em;
@@ -1443,7 +1443,7 @@ fieldset:hover legend {
 }
 
 /* ********************** GAME-WINDOW MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .game-window {
     font-size: var(--fs-small);
   }
@@ -1452,7 +1452,7 @@ fieldset:hover legend {
     margin-top: calc(var(--margin-top));
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   .bonus-time--container {
     font-size: var(--fs-smaller);
     margin-top: calc(var(--margin-top) * 3);
@@ -1601,7 +1601,7 @@ th {
 }
 
 /* ********************** RESULT-VIEW MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .result-window {
     font-size: small;
   }
@@ -1621,7 +1621,7 @@ th {
     width: 90%;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   /* RECORDS TABLE MEDIA QUERY */
   table {
     width: 95%;
@@ -1727,7 +1727,7 @@ span.signature {
 }
 
 /* ********************** FOOTER MEDIA QUERIES ********************** */
-@media (max-width: 48em) {
+@media screen and (width < 48em) {
   .footer {
     width: 95%;
 
@@ -1744,7 +1744,7 @@ span.signature {
     margin-left: 0.1em;
   }
 }
-@media (max-width: 35em) {
+@media screen and (width < 35em) {
   .footer {
     flex-direction: column;
 
