@@ -424,7 +424,7 @@ input[type="text"]:focus {
  */
 /* ----- ************ BUTTONS (checkbox and radio input are hidden, labels turned in buttons) ************ ----- */
 
-[class*="btn-"] {
+/* [class*="btn-"] {
   cursor: pointer;
 
   background-color: var(--bg-color);
@@ -438,7 +438,7 @@ input[type="text"]:focus {
   text-transform: uppercase;
   font-family: var(--ff-titles);
   font-size: var(--fs-small);
-}
+} */
 
 /* Up&down button animation */
 .btn-nav-toPreferences,
