@@ -1096,7 +1096,7 @@ h1 {
     padding-inline: 0.2em;
   }
   .welcome-minibtns button {
-    min-width: 45%;
+    width: 45%;
     font-size: 0.65em;
   }
 }
