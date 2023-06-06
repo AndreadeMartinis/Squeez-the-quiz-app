@@ -805,14 +805,14 @@ body::-webkit-scrollbar-thumb {
 
 /* ------------------------ *** (WELCOME, PREFERENCES, GAME)-WINDOW *** ------------------------ */
 [class$="-window"] {
-  height: 90vh;
+  min-height: 90vh;
   border-radius: inherit;
   background-color: var(--bg-color);
 }
 /* ********************** (WELCOME, PREFERENCES GAME, RESULT)-WINDOW  MEDIA QUERIES ********************** */
 @media (width < 48em) {
   [class$="-window"] {
-    height: auto;
+    min-height: auto;
   }
 }
 
