@@ -413,17 +413,13 @@ input[type="text"]:focus {
 /* ********************** BUTTONS CONTAINER (has always two buttons inside. Present in -> username--container, result--container, records--container) */
 [class*="btns-container"] {
   display: flex;
-
+  justify-content: center;
   min-width: 35%;
   gap: 1em;
 }
 
 [class*="btns-container"] > button {
-  /* min-width: 50%; */
   padding: 0.5em 1em;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
 }
 
 /* ----- ************ BUTTONS (checkbox and radio input are hidden, labels turned in buttons) ************ ----- */
@@ -1019,18 +1015,18 @@ h1 {
 
 /* --- *** HIDDEN BUTTONS CONTAINER *** --- */
 .welcome-window--btns-container {
-  min-height: 10vh;
+  padding-top: 2em;
   justify-content: center;
-  align-items: end;
 }
 
 .welcome-window--btns-container div {
-  gap: 0.5em;
   padding-bottom: 0.2em;
+  justify-content: space-evenly;
 }
 .welcome-minibtns button {
-  width: 48%;
-  font-size: 0.7rem;
+  width: 40%;
+  font-size: 0.6rem;
+  padding-block: .3em;
 }
 /* --- *** POP-UP *** --- */
 .credits-popup--container {
@@ -1089,11 +1085,20 @@ h1 {
     margin-top: 2em;
   }
   .readyForQuiz--container h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .welcome-window--btns-container {
-    gap: 0.2em;
-    padding-inline: 0.2em;
+    padding-inline: 0.5em;
+    justify-content: flex-end;
+  }
+  .welcome-window--btns-container div{
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+  .welcome-window--btns-container button{
+    font-size: .7em;
+    width: 50%
   }
   .welcome-minibtns button {
     width: 45%;
@@ -1221,7 +1226,7 @@ fieldset:hover legend {
     gap: 1em;
   }
   fieldset .legend {
-    font-size: var(--fs-smaller);
+    font-size: .95em;
   }
   fieldset {
     width: 48%;
@@ -1229,6 +1234,7 @@ fieldset:hover legend {
   .get-difficulty--container,
   .get-questionLimit--container {
     justify-content: center;
+    padding-block: 2.5em 1.5em;
   }
   .get-difficulty--container label,
   .get-questionLimit--container label {
@@ -1236,8 +1242,12 @@ fieldset:hover legend {
     padding: 0.4em;
     margin: 0.5em;
   }
+
+  .get-categories--container{
+    padding-right: 1em;
+  }
   .default-category--container {
-    margin-bottom: 1em;
+    margin-block: 1em;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1656,7 +1666,7 @@ th {
   }
   .record--btns-container button {
     font-size: 0.7em;
-    padding: 0;
+    padding: .5em .8em;
   }
 }
 
