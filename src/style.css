@@ -738,7 +738,7 @@ button:active {
   --------------******* BODY *******--------------
 */
 body {
-  height: 100vh;
+  min-height: 100vh;
 
   background-size: var(--background-size);
   background-position: var(--background-position);
@@ -1060,7 +1060,7 @@ h1 {
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
 @media (width < 48em) {
   .welcome-window {
-    height: 85vh;
+    min-height: 85vh;
   }
   h1 {
     font-size: 2em;
@@ -1074,7 +1074,7 @@ h1 {
 }
 @media (width < 35em) {
   .welcome-window {
-    height: 95vh;
+    min-height: 95vh;
   }
   h1 {
     font-size: var(--fs-bigger);
