@@ -702,24 +702,24 @@ button:active {
 
 @-webkit-keyframes move {
   from {
-    transform: translate(20vh, -50vh) rotate(-90deg);
+    transform: translate(20dvh, -50dvh) rotate(-90deg);
     border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
   }
 
   to {
-    transform: translate(90vw, 20vh) rotate(90deg);
+    transform: translate(90vw, 20dvh) rotate(90deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
 
 @keyframes move {
   from {
-    transform: translate(20vh, -50vh) rotate(-90deg);
+    transform: translate(20dvh, -50dvh) rotate(-90deg);
     border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
   }
 
   to {
-    transform: translate(90vw, 20vh) rotate(90deg);
+    transform: translate(90vw, 20dvh) rotate(90deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
@@ -734,7 +734,7 @@ button:active {
   --------------******* BODY *******--------------
 */
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
 
   background-size: var(--background-size);
   background-position: var(--background-position);
@@ -771,7 +771,7 @@ body::-webkit-scrollbar-thumb {
 
 .wrapper {
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* ---------- *** WINDOWS CONTAINER *** ---------- */
@@ -801,7 +801,7 @@ body::-webkit-scrollbar-thumb {
 
 /* ------------------------ *** (WELCOME, PREFERENCES, GAME)-WINDOW *** ------------------------ */
 [class$="-window"] {
-  min-height: 90vh;
+  min-height: 90dvh;
   border-radius: inherit;
   background-color: var(--bg-color);
 }
@@ -916,7 +916,7 @@ body::-webkit-scrollbar-thumb {
 */
 
 .loading-window {
-  min-height: 90vh;
+  min-height: 90dvh;
 }
 
 .loading-window--container{
@@ -1132,7 +1132,7 @@ h1 {
 fieldset {
   position: relative;
   min-width: calc(50% - 0.5em);
-  min-height: 15vh;
+  min-height: 15dvh;
 
   padding: 0.1em;
   margin-top: calc(var(--margin-top) / 3);
@@ -1341,7 +1341,7 @@ fieldset:hover legend {
 
 /* p is where question lives */
 .question--container p {
-  min-height: 8vh;
+  min-height: 8dvh;
 }
 
 /* Question info legends */
@@ -1381,7 +1381,7 @@ fieldset:hover legend {
 .answers--container > button {
   position: relative;
   padding: 1em;
-  min-height: 20vh;
+  min-height: 20dvh;
   width: calc(50% - 0.6em);
 }
 
@@ -1476,7 +1476,7 @@ fieldset:hover legend {
   }
   .answers--container > button {
     width: 100%;
-    min-height: 12vh;
+    min-height: 12dvh;
   }
   .game-window [class$="-legend"] {
     font-size: 0.9em;
@@ -1497,7 +1497,7 @@ fieldset:hover legend {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 90vh;
+  min-height: 90dvh;
 }
 
 /* TABLE WITH ALL RECORDS */
