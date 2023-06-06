@@ -411,7 +411,7 @@ input[type="text"]:focus {
 }
 
 /* ********************** BUTTONS CONTAINER (has always two buttons inside. Present in -> username--container, result--container, records--container) */
-[class*="btns-container"] {
+/* [class*="btns-container"] {
   display: flex;
   justify-content: center;
   min-width: 35%;
@@ -421,7 +421,7 @@ input[type="text"]:focus {
 [class*="btns-container"] > button {
   padding: 0.5em 1em;
 }
-
+ */
 /* ----- ************ BUTTONS (checkbox and radio input are hidden, labels turned in buttons) ************ ----- */
 
 [class*="btn-"] {
@@ -648,16 +648,16 @@ button:active {
 }
 @media screen and (width < 35em) {
   /* Buttons containers */
-  /* [class*="btns-container"] {
+  [class*="btns-container"] {
     width: fit-content;
     gap: 1.5em;
 
     font-size: var(--fs-small);
-  } */
+  }
   /* Nav buttons */
-  /* [class*="-nav"] {
+  [class*="-nav"] {
     font-size: var(--fs-smaller);
-  } */
+  }
   /* Labels transformed in buttons, checkbox and radio are hidden*/
   label {
     font-size: var(--fs-smaller);
