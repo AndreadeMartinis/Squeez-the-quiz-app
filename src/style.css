@@ -299,7 +299,7 @@ h4 {
     font-size: small;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   [class$="popup--container"] {
     width: 90%;
   }
@@ -374,7 +374,7 @@ h4 {
     min-width: 40%;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   .spinner-popup--container h2 {
     color: var(--clr-accent);
     font-size: 1em;
@@ -646,7 +646,7 @@ button:active {
     font-size: 0.65rem;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   /* Buttons containers */
   [class*="btns-container"] {
     width: fit-content;
@@ -787,7 +787,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** WINDOWS CONTAINER MEDIA QUERIES ********************** */
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   /* removing border from windows-container */
   .windows-container {
     width: 100%;
@@ -890,7 +890,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 0.7rem;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   .user-info--container {
     padding: 0 0.5em 0.3em 0.3em;
     min-height: initial;
@@ -1074,7 +1074,7 @@ h1 {
     font-size: x-large;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   h1 {
     font-size: var(--fs-bigger);
   }
@@ -1221,7 +1221,7 @@ fieldset:hover legend {
     box-shadow: var(--box-sh-button);
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   /* H2 MESSAGE MEDIA QUERY */
   .preferences-message {
     font-size: 1.6em;
@@ -1462,7 +1462,7 @@ fieldset:hover legend {
     margin-top: calc(var(--margin-top));
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   .bonus-time--container {
     font-size: var(--fs-smaller);
     margin-top: calc(var(--margin-top) * 3);
@@ -1631,7 +1631,7 @@ th {
     width: 90%;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   /* RECORDS TABLE MEDIA QUERY */
   table {
     width: 95%;
@@ -1754,7 +1754,7 @@ span.signature {
     margin-left: 0.1em;
   }
 }
-@media screen and (width < 35em) {
+@media screen and (width < 40em) {
   .footer {
     flex-direction: column;
 
