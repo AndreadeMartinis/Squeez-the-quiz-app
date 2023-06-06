@@ -648,16 +648,16 @@ button:active {
 }
 @media screen and (width < 35em) {
   /* Buttons containers */
-  [class*="btns-container"] {
+  /* [class*="btns-container"] {
     width: fit-content;
     gap: 1.5em;
 
     font-size: var(--fs-small);
-  }
+  } */
   /* Nav buttons */
-  [class*="-nav"] {
+ /*  [class*="-nav"] {
     font-size: var(--fs-smaller);
-  }
+  } */
   /* Labels transformed in buttons, checkbox and radio are hidden*/
   label {
     font-size: var(--fs-smaller);
