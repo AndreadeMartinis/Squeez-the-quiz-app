@@ -419,7 +419,7 @@ input[type="text"]:focus {
 }
 
 [class*="btns-container"] > button {
-  min-width: 50%;
+  /* min-width: 50%; */
   padding: 0.5em 1em;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -1865,3 +1865,12 @@ span.signature {
 /* *{
   outline: 1px solid yellow;
 } */
+
+
+/* 
+TODO: 
+  
+  - Messaggio dei bottoni blob e sound da spostare più interno
+  - Testo bottoni navigazione da rimpicciolire in responsive
+  - Il footer deve rimanere attaccato alla base della pagina e la pagina se è 100% visibile dev'essere centrata 
+*/
