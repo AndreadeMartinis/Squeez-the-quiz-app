@@ -859,7 +859,18 @@ body::-webkit-scrollbar-thumb {
 .total-points {
   margin-left: 0.5em;
   color: var(--clr-accent);
-  animation: changeColorAndPulse 1.5s 1;
+  -webkit-animation: changeColorAndPulse 1.5s 1;
+          animation: changeColorAndPulse 1.5s 1;
+}
+
+@-webkit-keyframes changeColorAndPulse {
+  0%,
+  100% {
+    color: var(--clr-accent);
+  }
+  50% {
+    color: var(--clr-primary);
+  }
 }
 
 @keyframes changeColorAndPulse {
@@ -926,7 +937,18 @@ body::-webkit-scrollbar-thumb {
 .loading-window h3 {
   font-size: 1.5em;
   color: var(--clr-accent);
-  animation: changeColor 1.5s 2;
+  -webkit-animation: changeColor 1.5s 2;
+          animation: changeColor 1.5s 2;
+}
+
+@-webkit-keyframes changeColor {
+  0%,
+  100% {
+    color: var(--clr-accent);
+  }
+  50% {
+    color: var(--clr-primary);
+  }
 }
 
 @keyframes changeColor {
