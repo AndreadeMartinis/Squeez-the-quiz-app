@@ -293,7 +293,7 @@ h4 {
   font-size: var(--fs);
 }
 /* *************** POP-UP MEDIAQUERIES *************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   [class$="popup--container"] {
     width: 90%;
   }
@@ -369,7 +369,7 @@ h4 {
 }
 
 /* ************ SPINNER MEDIAQUERIES ************ */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   .spinner-popup--container h2 {
     color: var(--clr-accent);
     font-size: 1em;
@@ -637,7 +637,7 @@ button:active {
 }
 
 /* ********************** BUTTONS MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   /* Buttons containers */
   [class*="btns-container"] {
     width: fit-content;
@@ -787,7 +787,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** WINDOWS CONTAINER MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   /* removing border from windows-container */
   .windows-container {
     width: 100%;
@@ -878,7 +878,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ********************** USER-INFO PANEL MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   .user-info--container {
     padding: 0 0.5em 0.3em 0.3em;
     min-height: initial;
@@ -1060,7 +1060,7 @@ h1 {
 }
 
 /* ********************** WELCOME-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   h1 {
     font-size: var(--fs-bigger);
   }
@@ -1192,7 +1192,7 @@ fieldset:hover legend {
 }
 
 /* ********************** PREFERENCES-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   /* H2 MESSAGE MEDIA QUERY */
   .preferences-message {
     font-size: 1.6em;
@@ -1453,7 +1453,7 @@ fieldset:hover legend {
 }
 
 /* ********************** GAME-WINDOW MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   .bonus-time--container {
     font-size: var(--fs-smaller);
     margin-top: calc(var(--margin-top) * 3);
@@ -1611,7 +1611,7 @@ th {
 }
 
 /* ********************** RESULT-VIEW MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   /* RECORDS TABLE MEDIA QUERY */
   table {
     width: 95%;
@@ -1735,7 +1735,7 @@ span.signature {
 }
 
 /* ********************** FOOTER MEDIA QUERIES ********************** */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 560px) {
   .footer {
     flex-direction: column;
 
