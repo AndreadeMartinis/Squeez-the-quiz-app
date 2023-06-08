@@ -800,9 +800,8 @@ body::-webkit-scrollbar-thumb {
 .windows-container {
   width: 95%;
   opacity: 0.9;
-  border: 2px solid var(--clr-primary);
-  box-shadow: 0px 0px 10px var(--clr-primary);
-  /* box-shadow: var(--box-sh-button); */
+  border: 1px solid var(--clr-primary);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   border-radius: var(--border-radius);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
