@@ -699,7 +699,8 @@ button:active {
 
 .blobEl {
   position: absolute;
-  left: 0;
+  left: -120px;
+  top: 250px;
 
   width: calc(32.5em / 3);
   height: calc(32.5em / 3);
@@ -724,24 +725,24 @@ button:active {
 
 @-webkit-keyframes move {
   from {
-    transform: translate(20dvh, -50dvh) rotate(-90deg);
+    transform: translate(10vw, -50dvh) rotate(-90deg);
     border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
   }
 
   to {
-    transform: translate(90vw, 20dvh) rotate(90deg);
+    transform: translate(90vw, 40dvh) rotate(90deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
 
 @keyframes move {
   from {
-    transform: translate(20dvh, -50dvh) rotate(-90deg);
+    transform: translate(10vw, -50dvh) rotate(-90deg);
     border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
   }
 
   to {
-    transform: translate(90vw, 20dvh) rotate(90deg);
+    transform: translate(90vw, 40dvh) rotate(90deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
@@ -799,7 +800,7 @@ body::-webkit-scrollbar-thumb {
 /* ---------- *** WINDOWS CONTAINER *** ---------- */
 .windows-container {
   width: 95%;
-  opacity: 0.9;
+  opacity: 0.8;
   border: 1px solid var(--clr-primary);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   border-radius: var(--border-radius);
